@@ -34,11 +34,12 @@ following cookbooks prior to docker in your run_list.
   end
 
 when 'debian'
-  # check kernel.release >= 3.8
-  unless ::Chef::VersionConstraint.new('>= 3.8').include?(node['kernel']['release'].match(/\d+.\d+/)[0])
+  # check kernel.release >= node['docker']['Debian']['kernel_min_version']
+  unless ::Chef::VersionConstraint.new('>= node[:docker][:Debian][:kernel_min_version]').include?(node['kernel']['release'].match(/\d+.\d+/)[0])
     alert_on_error DockerCookbook::Exceptions::InvalidKernelVersion, action, <<-MSG
 Due to a bug in LXC, Docker works best on the 3.8 Linux kernel. You are currently running #{node['kernel']['release']}.
 It is recommended that you upgrade your kernel to at least 3.8.
+Override via node[:docker][:Debian][:kernel_min_version]
 
 More Info: http://docs.docker.io/installation/ubuntulinux/
     MSG
