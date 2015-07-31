@@ -42,9 +42,6 @@ default['docker']['version'] = nil
 # Actions: :warn, :fatal
 default['docker']['alert_on_error_action'] = :fatal
 
-# Kernel Minimum Version for Debian
-default['docker']['Debian']['kernel_min_version'] = '3.2'
-
 
 ## Binary installation attributes
 
