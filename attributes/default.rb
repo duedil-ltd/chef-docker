@@ -42,6 +42,7 @@ default['docker']['version'] = nil
 # Actions: :warn, :fatal
 default['docker']['alert_on_error_action'] = :fatal
 
+
 ## Binary installation attributes
 
 default['docker']['binary']['dependency_packages'] = value_for_platform_family(
