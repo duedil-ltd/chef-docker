@@ -189,3 +189,4 @@ default['docker']['registry_cmd_timeout'] = 60
 # Other attributes
 
 default['docker']['restart'] = false if node['docker']['container_init_type']
+default['docker']['log_driver'] = nil
