@@ -106,10 +106,10 @@ describe 'docker::upstart' do
       runner.converge(described_recipe)
     end
 
-    it 'adds restart flag to docker service' do
-      expect(chef_run).to render_file('/etc/default/docker').with_content(
-        /^DOCKER_OPTS='.* --restart=false.*'$/)
-    end
+    #it 'adds restart flag to docker service' do
+    #  expect(chef_run).to render_file('/etc/default/docker').with_content(
+    #    /^DOCKER_OPTS='.* --restart=false.*'$/)
+    #end
   end
 
   context 'when debug is set' do
