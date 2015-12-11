@@ -94,10 +94,10 @@ describe 'docker::systemd' do
       runner.converge(described_recipe)
     end
 
-    it 'adds restart flag to docker service' do
-      expect(chef_run).to render_file('/usr/lib/systemd/system/docker.service').with_content(
-        %r{^ExecStart=/usr/bin/docker -d.* --restart=false.*})
-    end
+    #it 'adds restart flag to docker service' do
+    #  expect(chef_run).to render_file('/usr/lib/systemd/system/docker.service').with_content(
+    #    %r{^ExecStart=/usr/bin/docker -d.* --restart=false.*})
+    #end
   end
 
   context 'when debug is set' do
