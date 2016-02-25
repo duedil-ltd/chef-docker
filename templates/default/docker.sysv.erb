@@ -62,7 +62,7 @@ start() {
         prestart
         printf "Starting $prog:\t"
         echo "\n$(date)\n" >> $logfile
-        $exec -d $DOCKER_OPTS &>> $logfile &
+        $exec daemon $DOCKER_OPTS &>> $logfile &
         pid=$!
         touch $lockfile
         # wait up to 10 seconds for the pidfile to exist.  see
