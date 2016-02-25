@@ -8,7 +8,7 @@ describe 'docker::sysv' do
   it 'creates the docker SysV template' do
     expect(chef_run).to create_template('/etc/init.d/docker')
     expect(chef_run).to render_file('/etc/init.d/docker').with_content(
-      /\$exec -d \$DOCKER_OPTS/)
+      /\$exec daemon \$DOCKER_OPTS/)
   end
 
   context 'when running on debian/ubuntu' do
